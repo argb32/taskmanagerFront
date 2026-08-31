@@ -1,0 +1,17 @@
+@if (taskResource.isLoading()) {
+  <div class="flex justify-center items-center h-screen">
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+}
+
+@if (taskResource.error(); as error) {
+  <pre>{{ error | json }}</pre>
+}
+
+<div class="px-4">
+  <div class="grid sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3">
+    @for (task of taskResource.value(); track task.id) {
+      <app-task-card [task]="task" />
+    }
+  </div>
+</div>
