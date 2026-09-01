@@ -1,0 +1,27 @@
+<table class="w-full whitespace-nowrap">
+  <thead>
+    <tr class="bg-black/60">
+      <th class="text-left py-3 px-2">Name</th>
+      <th class="text-left py-3 px-2">Email</th>
+      <th class="text-left py-3 px-2">Role</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (user of userResource.value(); track user.id) {
+      <tr class="border-b border-gray-700">
+        <td class="py-3 px-2 font-bold">
+          {{ user.name }}
+        </td>
+
+        <td class="py-3 px-2">
+          {{ user.email }}
+        </td>
+
+        <td class="py-3 px-2">
+          {{ getRoles(user) | titlecase }}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

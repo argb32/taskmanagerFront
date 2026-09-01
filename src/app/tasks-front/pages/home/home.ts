@@ -2,16 +2,15 @@ import { Component, inject } from '@angular/core';
 import { TaskService } from '../../services/taskService';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { tap } from 'rxjs';
-import { TitleCasePipe } from '@angular/common';
-import { TaskResponse } from '../../interfaces/task.interface';
-import { RouterLink } from '@angular/router';
+import { JsonPipe } from '@angular/common';
+import { TaskCard } from '../../components/task-card/task-card';
 
 @Component({
-  selector: 'app-tasks',
-  imports: [TitleCasePipe, RouterLink],
-  templateUrl: './tasks.html',
+  selector: 'app-home',
+  imports: [JsonPipe, TaskCard],
+  templateUrl: './home.html',
 })
-export class Tasks {
+export class Home {
   taskService = inject(TaskService);
 
   taskResource = rxResource({
@@ -20,8 +19,4 @@ export class Tasks {
         .getTasks()
         .pipe(tap((res) => console.log('Respuesa: ', res))),
   });
-
-  getAssignedTo(task: TaskResponse): string {
-    return task.assignedTo.map((user) => user.name).join(', ');
-  }
 }

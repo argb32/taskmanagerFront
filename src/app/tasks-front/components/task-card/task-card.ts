@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { TaskResponse } from '../../../interfaces/task.interface';
+import { TaskResponse } from '../../interfaces/task.interface';
 import { DatePipe } from '@angular/common';
 
 @Component({
