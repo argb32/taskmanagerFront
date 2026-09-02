@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Users } from './pages/users/users';
 import { Tasks } from './pages/tasks/tasks';
 import { TaskCard } from './components/task-card/task-card';
+import { TaskDetails } from './pages/task-details/task-details';
 
 export const taskRoutes: Routes = [
   {
@@ -24,7 +25,7 @@ export const taskRoutes: Routes = [
       },
       {
         path: 'tasks/:id',
-        component: TaskCard,
+        component: TaskDetails,
       },
     ],
   },

@@ -15,10 +15,7 @@ export class Tasks {
   taskService = inject(TaskService);
 
   taskResource = rxResource({
-    stream: () =>
-      this.taskService
-        .getTasks()
-        .pipe(tap((res) => console.log('Respuesa: ', res))),
+    stream: () => this.taskService.getTasks(),
   });
 
   getAssignedTo(task: TaskResponse): string {
